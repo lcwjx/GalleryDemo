@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gallery</string>
+
+    <string name="error_file_type">Unsupported file type</string>
+    <string name="album_name_all">All Media</string>
+    <string name="error_over_count">You can only select up to %1$d media files</string>
+    <string name="error_type_conflict">Can\'t select images and videos at the same time</string>
+    <string name="gallery_sure">确定</string>
+    <string name="gallery_sure_count">确定(%1$d)</string>
+</resources>

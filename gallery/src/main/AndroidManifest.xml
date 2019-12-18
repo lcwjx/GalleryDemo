@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wjx.gallery">
+
+    <application>
+        <activity android:name=".ui.MatisseActivity" />
+        <activity android:name=".ui.SelectedPreviewActivity" />
+        <activity android:name=".ui.AlbumPreviewActivity" />
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+    </application>
+</manifest>
