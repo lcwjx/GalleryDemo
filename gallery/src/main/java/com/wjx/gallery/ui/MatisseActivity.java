@@ -210,7 +210,7 @@ public class MatisseActivity extends BaseActivity implements View.OnClickListene
             finish();
         } else if (requestCode == REQUEST_CODE_CORP) {
             Intent result = new Intent();
-            result.putExtra(EXTRA_RESULT_CROP, mCropOutUri);
+            result.putExtra(EXTRA_RESULT_CROP, mSpec.cropEngine.getCropPath(data));
             setResult(RESULT_OK, result);
             finish();
         }

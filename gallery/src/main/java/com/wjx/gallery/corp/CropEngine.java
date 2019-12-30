@@ -18,4 +18,6 @@ public interface CropEngine {
      */
     void crop(AppCompatActivity context, Uri uri, Uri desUri);
 
+    Uri getCropPath(Intent data);
+
 }

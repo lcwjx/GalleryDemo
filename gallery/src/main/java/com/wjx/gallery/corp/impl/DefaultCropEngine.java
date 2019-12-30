@@ -18,9 +18,14 @@ import com.yalantis.ucrop.UCrop;
 public class DefaultCropEngine implements CropEngine {
     @Override
     public void crop(AppCompatActivity context, Uri uri, Uri desUri) {
-        Log.e("crop",desUri.toString());
+        Log.e("crop", desUri.toString());
         UCrop.of(uri, desUri)
                 .withAspectRatio(1, 1)
                 .start(context);
+    }
+
+    @Override
+    public Uri getCropPath(Intent data) {
+        return UCrop.getOutput(data);
     }
 }
