@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleRes;
 import androidx.fragment.app.Fragment;
 
-import com.wjx.gallery.corp.CropEngine;
+import com.wjx.gallery.engine.CropEngine;
 import com.wjx.gallery.engine.ImageEngine;
 import com.wjx.gallery.entity.CaptureStrategy;
 import com.wjx.gallery.entity.SelectionSpec;

@@ -6,8 +6,8 @@ import androidx.annotation.StyleRes;
 
 import com.wjx.gallery.MimeType;
 import com.wjx.gallery.R;
-import com.wjx.gallery.corp.CropEngine;
-import com.wjx.gallery.corp.impl.DefaultCropEngine;
+import com.wjx.gallery.engine.CropEngine;
+import com.wjx.gallery.engine.impl.DefaultCropEngine;
 import com.wjx.gallery.engine.ImageEngine;
 import com.wjx.gallery.engine.impl.GlideEngine;
 import com.wjx.gallery.filter.Filter;

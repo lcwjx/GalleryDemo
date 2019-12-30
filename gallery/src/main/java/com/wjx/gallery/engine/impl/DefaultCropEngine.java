@@ -1,4 +1,4 @@
-package com.wjx.gallery.corp.impl;
+package com.wjx.gallery.engine.impl;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,7 +6,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.wjx.gallery.corp.CropEngine;
+import com.wjx.gallery.engine.CropEngine;
 import com.yalantis.ucrop.UCrop;
 
 /**

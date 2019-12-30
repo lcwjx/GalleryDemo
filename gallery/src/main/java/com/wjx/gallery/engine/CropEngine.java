@@ -1,4 +1,4 @@
-package com.wjx.gallery.corp;
+package com.wjx.gallery.engine;
 
 import android.content.Intent;
 import android.net.Uri;
