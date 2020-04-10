@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             GalleryFinal.with(this)
                 .choose(MimeType.ofAll())
                 .capture(false)
-                .maxSelectable(6)
+                .maxSelectablePerMediaType(6,1)
                 .forResult(1003)
         }
     }

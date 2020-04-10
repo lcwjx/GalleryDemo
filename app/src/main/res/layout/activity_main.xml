@@ -42,6 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/tv_startActivityForResult"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="startActivityForResult" />
+
         </LinearLayout>
     </ScrollView>
 

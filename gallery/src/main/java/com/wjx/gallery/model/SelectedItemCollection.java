@@ -169,32 +169,34 @@ public class SelectedItemCollection {
     public IncapableCause isAcceptable(Item item) {
         if (maxSelectableReached()) {
             int maxSelectable = currentMaxSelectable();
-            String cause = null;
-
-            try {
-//                cause = mContext.getResources().getQuantityString(
-//                        R.plurals.error_over_count,
-//                        maxSelectable,
-//                        maxSelectable
-//                );
-            } catch (Resources.NotFoundException e) {
-                cause = mContext.getString(
-                        R.string.error_over_count,
-                        maxSelectable
-                );
-            } catch (NoClassDefFoundError e) {
-                cause = mContext.getString(
-                        R.string.error_over_count,
-                        maxSelectable
-                );
-            }
-
+            String cause = mContext.getString(R.string.error_over_count, maxSelectable);
             return new IncapableCause(cause);
         } else if (typeConflict(item)) {
             return new IncapableCause(mContext.getString(R.string.error_type_conflict));
+        } else if (SelectionSpec.getInstance().maxSelectable < 0) {
+            IncapableCause cause = maxSelectablePerMediaType(item);
+            if (cause != null) {
+                return cause;
+            }
         }
 
         return PhotoMetadataUtils.isAcceptable(mContext, item);
+    }
+
+    private IncapableCause maxSelectablePerMediaType(Item item) {
+        IncapableCause incapableCause = null;
+        if (item.isImage() || item.isGif()) {
+            int maxImageSelectable = SelectionSpec.getInstance().maxImageSelectable;
+            if (getCollectionImage() >= maxImageSelectable) {
+                incapableCause = new IncapableCause(mContext.getString(R.string.error_over_image_count, maxImageSelectable));
+            }
+        } else {
+            int maxVideoSelectable = SelectionSpec.getInstance().maxVideoSelectable;
+            if (getCollectionVideo() >= maxVideoSelectable) {
+                incapableCause = new IncapableCause(mContext.getString(R.string.error_over_videos_count, maxVideoSelectable));
+            }
+        }
+        return incapableCause;
     }
 
     public boolean maxSelectableReached() {
@@ -206,12 +208,14 @@ public class SelectedItemCollection {
         SelectionSpec spec = SelectionSpec.getInstance();
         if (spec.maxSelectable > 0) {
             return spec.maxSelectable;
-        } else if (mCollectionType == COLLECTION_IMAGE) {
-            return spec.maxImageSelectable;
-        } else if (mCollectionType == COLLECTION_VIDEO) {
-            return spec.maxVideoSelectable;
-        } else {
-            return spec.maxSelectable;
+        }
+//        else if (mCollectionType == COLLECTION_IMAGE) {
+//            return spec.maxImageSelectable;
+//        } else if (mCollectionType == COLLECTION_VIDEO) {
+//            return spec.maxVideoSelectable;
+//        }
+        else {
+            return spec.maxImageSelectable + spec.maxVideoSelectable;
         }
     }
 
@@ -233,6 +237,22 @@ public class SelectedItemCollection {
         } else if (hasVideo) {
             mCollectionType = COLLECTION_VIDEO;
         }
+    }
+
+    private int getCollectionImage() {
+        int imageCount = 0;
+        for (Item i : mItems) {
+            if (i.isImage()) imageCount++;
+        }
+        return imageCount;
+    }
+
+    private int getCollectionVideo() {
+        int videoCount = 0;
+        for (Item i : mItems) {
+            if (i.isVideo()) videoCount++;
+        }
+        return videoCount;
     }
 
     /**

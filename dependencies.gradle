@@ -1,0 +1,25 @@
+ext {
+
+    kotlin_version = '1.3.50'
+    androidxVersion='1.1.0'
+    androidxConstraint='1.1.3'
+    androidxMultidex='2.0.0'
+    androidxCoreVersion = '1.2.0'
+    kotlin_stdlib                   ="org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    androidx_AppCompat              = "androidx.appcompat:appcompat:${androidxVersion}"
+    androidx_Core_ktx               = "androidx.core:core-ktx:${androidxCoreVersion}"
+    androidx_Recyclerview           = "androidx.recyclerview:recyclerview:${androidxVersion}"
+    androidx_Constraint             = "androidx.constraintlayout:constraintlayout:${androidxConstraint}"
+    androidx_V4                     = "androidx.legacy:legacy-support-v4:${androidxVersion}"
+    androidx_Design                 = "com.google.android.material:material:${androidxVersion}"
+    androidx_Exifinterface          = "androidx.exifinterface:exifinterface:${androidxVersion}"
+    androidx_Multidex               = "androidx.multidex:multidex:${androidxMultidex}"
+    androidx_Annotations            = "androidx.annotation:annotation:${androidxVersion}"
+    androidx_junit                  = "androidx.test.ext:junit:1.1.1"
+    androidx_Runner                 = "androidx.test:runner:1.2.0"
+    androidx_Espresso               = "androidx.test.espresso:espresso-core:3.2.0"
+    androidx_CardView               = "androidx.cardview:cardview:${androidxVersion}"
+    androidx_Coordinatorlayout      = "androidx.coordinatorlayout:coordinatorlayout:${androidxVersion}"
+
+}
