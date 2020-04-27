@@ -8,6 +8,7 @@ import android.util.Log
 import com.wjx.gallery.GalleryFinal
 import com.wjx.gallery.MimeType
 import com.wjx.gallery.entity.CaptureStrategy
+import com.wjx.kit.toast.ToastUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 .capture(false)
                 .maxSelectablePerMediaType(6,1)
                 .forResult(1003)
+        }
+        tv_toast_test.setOnClickListener {
+            ToastUtils.showShortToast(this,"toast...")
         }
     }
 

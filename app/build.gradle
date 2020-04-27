@@ -38,5 +38,6 @@ dependencies {
     androidTestImplementation rootProject.ext.androidx_junit
     androidTestImplementation rootProject.ext.androidx_Espresso
     implementation project(path: ':gallery')
+    implementation project(path: ':basekit')
 
 }

@@ -1,2 +1,3 @@
 include ':app', ':gallery'
 rootProject.name='GalleryDemo'
+include ':basekit'
